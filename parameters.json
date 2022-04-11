@@ -1,0 +1,78 @@
+{   
+    "data_processing": {
+        "toc_path": "src/dabase/toc.png",
+        "db_path": "src/database/heart.csv",
+        "cols_to_drop_zero": ["Cholesterol", "Restingbp"],
+        "target_var": "Heartdisease",
+        "data_vis_hist": {
+            "sex": { 
+                "target_var":  "Heartdisease",
+                "target_var_values": [0, 1],
+                "hue": "Sex", 
+                "hue_values": ["M", "F"],
+                "titles": ["Distribution of Healthy patients regarding Sex", 
+                           "Distribution of Sick patients regarding Sex"],
+                "colors": ["skyblue", "purple"]
+            },
+            "chestpaintype": {
+                "target_var":  "Heartdisease",
+                "target_var_values": [0, 1],
+                "hue": "Chestpaintype", 
+                "hue_values": ["ASY", "ATA", "NAP", "TA"],
+                "titles": ["Distribution of Healthy patients regarding Chestpaintype", 
+                           "Distribution of Sick patients regarding Chestpaintype"],
+                "colors": ["skyblue", "purple", "yellow", "green"]
+            },
+            "fastingbs": {
+                "target_var":  "Heartdisease",
+                "target_var_values": [0, 1],
+                "hue": "Fastingbs", 
+                "hue_values": [0, 1],
+                "titles": ["Distribution of Healthy patients regarding Fastingbs", 
+                           "Distribution of Sick patients regarding Fastingbs"],
+                "colors": ["skyblue", "purple"]
+            },
+            "restingecg": {
+                "target_var":  "Heartdisease",
+                "target_var_values": [0, 1],
+                "hue": "Restingecg", 
+                "hue_values": ["LVH", "ST", "Normal"],
+                "titles": ["Distribution of Healthy patients regarding Restingecg", 
+                           "Distribution of Sick patients regarding Restingecg"],
+                "colors": ["skyblue", "purple", "green"]
+            },
+            "exerciseangina": {
+                "target_var":  "Heartdisease",
+                "target_var_values": [0, 1],
+                "hue": "Exerciseangina", 
+                "hue_values": ["N", "Y"],
+                "titles": ["Distribution of Healthy patients regarding Exerciseangina", 
+                           "Distribution of Sick patients regarding Exerciseangina"],
+                "colors": ["skyblue", "purple"]
+            },
+            "st_slope": {
+                "target_var":  "Heartdisease",
+                "target_var_values": [0, 1],
+                "hue": "St_slope", 
+                "hue_values": ["Flat", "Down", "Up"],
+                "titles": ["Distribution of Healthy patients regarding St_slope", 
+                           "Distribution of Sick patients regarding St_slope"],
+                "colors": ["skyblue", "purple", "green"]
+            }
+        },
+        "factor_vars_corr": ["sex", "chestpaintype", "fastingbs", 
+                             "restingecg", "exerciseangina", "st_slope"],
+        "numeric_vars_corr": ["Age", "Restingbp", "Cholesterol", "Maxhr", "Oldpeak", "Heartdisease"]
+    },
+    "data_handling": {
+        "cols_to_split": ["Sex", "Chestpaintype", "Exerciseangina", "Restingecg", "St_slope"],
+        "target_var": "Heartdisease",
+        "corr_cutoff": 0.5
+    },
+    "machine_learning": {
+        "target_var": "Heartdisease",
+        "target_var_values": ["HEALTHY", "SICK"],
+        "df_test_size": 0.3,
+        "ntrees": 1000
+    }
+}
